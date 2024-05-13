@@ -1,10 +1,12 @@
 import React from 'react';
-import "../css/Result.css";
+import "../css/ModificationTable.css";
+import { MdDeleteOutline } from "react-icons/md";
+import { FaRegEdit } from "react-icons/fa";
 
-const Result = () => {
-
+const ModificationTable = () => {
+  
     return (
-        <div className="result-container">
+        <div className="modification-table-container">
             <table className="table">
                 <thead>
                     <tr>
@@ -14,6 +16,8 @@ const Result = () => {
                         <th scope="col">Tool Name</th>
                         <th scope="col">Quantity</th>
                         <th scope="col">Price</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,11 +42,23 @@ const Result = () => {
                         <td>4</td>
                         <td>5</td>
                         <td>6</td>
+                        <td>
+                            <button>
+                                <FaRegEdit/>{/* NEW FORM OR ENOUGH ADDNEWTOOL FORM TO EDIT? */}
+                            </button>
+                            </td>
+                        <td>
+                            <button>
+                                <MdDeleteOutline/>
+                            </button>
+                        </td>
                     </tr>
                 </tbody> 
             </table>
         </div>
   )
+
+
 }
 
-export default Result;
+export default ModificationTable

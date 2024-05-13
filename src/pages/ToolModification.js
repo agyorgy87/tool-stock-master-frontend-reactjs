@@ -1,9 +1,9 @@
 import React from 'react';
-import NavigationBar from "../components/NavigationBar.js";
-import SearchByIdInput from "../components/SearchByIdInput.js";
-import ResultTable from "../components/ResultTable.js";
+import NavigationBar from '../components/NavigationBar.js';
+import SearchByIdInput from '../components/SearchByIdInput.js';
+import ModificationTable from '../components/ModificationTable.js';
 
-const SearchById = () => {
+const ToolModification = () => {
   return (
     <div>
         <div>
@@ -13,10 +13,10 @@ const SearchById = () => {
             <SearchByIdInput/>
         </div>
         <div className="d-flex justify-content-center mt-4">
-            <ResultTable/>
+            <ModificationTable/>
         </div>
     </div>
   )
 }
 
-export default SearchById
+export default ToolModification;

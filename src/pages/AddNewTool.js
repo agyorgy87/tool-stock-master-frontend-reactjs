@@ -93,7 +93,7 @@ const AddNewTool = () => {
                         </div>
                         <div className="d-flex justify-content-center">
                             <button className="btn btn-success" onClick={handleSubmit}>
-                                Add New Tool
+                                Save Tool
                             </button>
                         </div>
                     </div> 
