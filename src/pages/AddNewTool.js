@@ -1,5 +1,7 @@
 import React, { useState }  from 'react';
+import "../css/AddNewTool.css";
 import axios from 'axios';
+import NavigationBar from '../components/NavigationBar';
 
 const AddNewTool = () => {
 
@@ -38,57 +40,64 @@ const AddNewTool = () => {
       };
 
     return (
-        <div className="App d-flex justify-content-center flex-column">
-            <h3>toolstockmaster - TSM </h3>
-                <div className="addToolsForm d-flex d-flex justify-content-center flex-column">
-                    <div className="form-floating mb-3">
-                        <input 
-                        className="form-control" 
-                        id="productId" 
-                        value={inputValues.productId}
-                        onChange={handleInputChange}
-                        placeholder=""/>
-                        <label htmlFor="productId">Product ID</label>
-                    </div>
-                    <div className="form-floating mb-3">
-                        <input 
-                        className="form-control" 
-                        id="company"
-                        value={inputValues.company} 
-                        onChange={handleInputChange}
-                        placeholder=""/>
-                        <label htmlFor="company">Company</label>
-                    </div>
-                    <div className="form-floating mb-3">
-                        <input 
-                        className="form-control" 
-                        id="toolName"
-                        value={inputValues.toolName}
-                        onChange={handleInputChange}
-                        placeholder=""/>
-                        <label htmlFor="toolName">Tool Name</label>
-                    </div>
-                    <div className="form-floating mb-3">
-                        <input 
-                        className="form-control" 
-                        id="quantity"
-                        value={inputValues.quantity} 
-                        onChange={handleInputChange}
-                        placeholder=""/>
-                        <label htmlFor="quantity">Quantity</label>
-                    </div>
-                    <div className="form-floating mb-3">
-                        <input 
-                        className="form-control" 
-                        id="price"
-                        value={inputValues.price} 
-                        onChange={handleInputChange}
-                        placeholder=""/>
-                        <label htmlFor="price">Price/net</label>
-                    </div>
-                    <button className="btn btn-success" onClick={handleSubmit}
-                    >Accept</button>
-                </div>   
+        <div>
+            <div>
+                <NavigationBar/>
+            </div>
+                <div className="d-flex justify-content-center mt-5">
+                    <div className="add-new-tool-container">
+                        <div className="form-floating mb-3">
+                            <input 
+                            className="form-control" 
+                            id="productId" 
+                            value={inputValues.productId}
+                            onChange={handleInputChange}
+                            placeholder=""/>
+                            <label htmlFor="productId">Product ID</label>
+                        </div>
+                        <div className="form-floating mb-3">
+                            <input 
+                            className="form-control" 
+                            id="company"
+                            value={inputValues.company} 
+                            onChange={handleInputChange}
+                            placeholder=""/>
+                            <label htmlFor="company">Company</label>
+                        </div>
+                        <div className="form-floating mb-3">
+                            <input 
+                            className="form-control" 
+                            id="toolName"
+                            value={inputValues.toolName}
+                            onChange={handleInputChange}
+                            placeholder=""/>
+                            <label htmlFor="toolName">Tool Name</label>
+                        </div>
+                        <div className="form-floating mb-3">
+                            <input 
+                            className="form-control" 
+                            id="quantity"
+                            value={inputValues.quantity} 
+                            onChange={handleInputChange}
+                            placeholder=""/>
+                            <label htmlFor="quantity">Quantity</label>
+                        </div>
+                        <div className="form-floating mb-3">
+                            <input 
+                            className="form-control" 
+                            id="price"
+                            value={inputValues.price} 
+                            onChange={handleInputChange}
+                            placeholder=""/>
+                            <label htmlFor="price">Price/net</label>
+                        </div>
+                        <div className="d-flex justify-content-center">
+                            <button className="btn btn-success" onClick={handleSubmit}>
+                                Add New Tool
+                            </button>
+                        </div>
+                    </div> 
+                </div>  
         </div>
     );
 }
