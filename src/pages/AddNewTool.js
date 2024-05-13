@@ -92,5 +92,4 @@ const AddNewTool = () => {
         </div>
     );
 }
-
 export default AddNewTool;
