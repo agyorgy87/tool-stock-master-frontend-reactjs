@@ -44,6 +44,9 @@ const AddNewTool = () => {
             <div>
                 <NavigationBar/>
             </div>
+            <div className="d-flex justify-content-center mt-5">
+                <h1>New Tool</h1>
+            </div>
                 <div className="d-flex justify-content-center mt-5">
                     <div className="add-new-tool-container">
                         <div className="form-floating mb-3">

@@ -1,9 +1,12 @@
 import React from 'react';
 import "../css/ModificationTable.css";
-import { MdDeleteOutline } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+import { MdDeleteOutline } from "react-icons/md"; 
 import { FaRegEdit } from "react-icons/fa";
 
 const ModificationTable = () => {
+
+    let navigate = useNavigate(); 
   
     return (
         <div className="modification-table-container">
@@ -43,7 +46,7 @@ const ModificationTable = () => {
                         <td>5</td>
                         <td>6</td>
                         <td>
-                            <button>
+                            <button onClick={() => navigate("/edittool")}>
                                 <FaRegEdit/>{/* NEW FORM OR ENOUGH ADDNEWTOOL FORM TO EDIT? */}
                             </button>
                             </td>

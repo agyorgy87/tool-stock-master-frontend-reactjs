@@ -8,6 +8,7 @@ import SearchByQuantity from './pages/SearchByQuantity.js';
 import SearchByPrice from './pages/SearchByPrice.js';
 import AddNewTool from './pages/AddNewTool.js';
 import ToolModification from "./pages/ToolModification.js";
+import EditTool from './pages/EditTool.js';
 
 const Navigation = () => {
 
@@ -23,6 +24,7 @@ const Navigation = () => {
                     <Route path="/searchbyprice" element={<SearchByPrice/>} />
                     <Route path="/addnewtool" element={<AddNewTool/>} />
                     <Route path="/toolmodification" element={<ToolModification/>} />
+                    <Route path="/edittool" element={<EditTool/>} />
                 </Routes>
             </BrowserRouter>
     </div>
