@@ -1,6 +1,7 @@
 import React from 'react';
 import {Routes, Route, BrowserRouter} from "react-router-dom";
 import Home from "./pages/Home.js";
+import Registration from './pages/Registration.js';
 import SearchById from './pages/SearchById.js';
 import SearchByCompany from './pages/SearchByCompany.js';
 import SearchByToolName from './pages/SearchByToolName.js';
@@ -17,6 +18,7 @@ const Navigation = () => {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Home/>} />   
+                    <Route path="/registration" element={<Registration/>} />
                     <Route path="/searchbyid" element={<SearchById/>} />
                     <Route path="/searchbycompany" element={<SearchByCompany/>} />
                     <Route path="/searchbytoolname" element={<SearchByToolName/>} />

@@ -1,6 +1,6 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const NavigationBar = () => {
 
@@ -52,7 +52,7 @@ const NavigationBar = () => {
                             </li>
                         </ul>
                         <form className="d-flex" role="search">
-                            <button className="btn btn-outline-success" type="submit">Login/Logout</button>
+                            <button className="btn btn-outline-success" onClick={() => navigate("/")}>Login/Logout</button>
                         </form>
                     </div>
                 </div>
