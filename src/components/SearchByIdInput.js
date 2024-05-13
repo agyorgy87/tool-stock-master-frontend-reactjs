@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SearchByIdInput = () => {
-  return (
+  return ( 
     <div>
         <div className="form-floating mb-3">
             <input 

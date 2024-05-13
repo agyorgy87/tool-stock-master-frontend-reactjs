@@ -22,16 +22,25 @@ const NavigationBar = () => {
                                 </a>
                                 <ul className="dropdown-menu">
                                     <li>
-                                        <Link to={"/searchbyid"} className="dropdown-item" href>Search by ID</Link>
+                                        <Link to={"/searchbyid"} className="dropdown-item">Search by ID</Link>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item" href>b</a>
+                                        <Link to={"/searchbycompany"} className="dropdown-item">Search by Company</Link>
                                     </li>
                                     <li>
+                                        <Link to={"/searchbytoolname"} className="dropdown-item">Search by Tool Name</Link>
+                                    </li>
+                                    <li>
+                                        <Link to={"/searchbyquantity"} className="dropdown-item">Search by Quantity</Link>
+                                    </li>
+                                    <li>
+                                        <Link to={"/searchbyprice"} className="dropdown-item">Search by Price</Link>
+                                    </li>
+                                    <li> 
                                         <hr className="dropdown-divider"/>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item" href>c</a>
+                                        <a className="dropdown-item" href>x</a>
                                     </li>
                                 </ul>
                             </li>

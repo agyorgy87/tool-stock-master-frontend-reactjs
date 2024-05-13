@@ -4,19 +4,20 @@ import SearchByIdInput from "../components/SearchByIdInput.js";
 import ResultTable from "../components/ResultTable.js";
 
 const SearchById = () => {
-  return (
-    <div>
+
+    return ( 
         <div>
-            <NavigationBar/>
+            <div>
+                <NavigationBar/>
+            </div>
+            <div className="d-flex justify-content-center mt-5">
+                <SearchByIdInput/>
+            </div>
+            <div className="d-flex justify-content-center mt-4">
+                <ResultTable/>
+            </div>
         </div>
-        <div className="d-flex justify-content-center mt-5">
-            <SearchByIdInput/>
-        </div>
-        <div className="d-flex justify-content-center mt-4">
-            <ResultTable/>
-        </div>
-    </div>
-  )
+    )
 }
 
-export default SearchById
+export default SearchById;
