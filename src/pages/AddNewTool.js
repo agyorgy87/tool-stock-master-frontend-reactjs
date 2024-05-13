@@ -1,15 +1,14 @@
-import '../css/NewTool.css';
 import React, { useState }  from 'react';
 import axios from 'axios';
 
-const NewTool = () => {
+const AddNewTool = () => {
 
-    const [inputValues, setInputValues] = useState ({
-        articleNumber: "",
+    const [inputValues, setInputValues] = useState ({ // SAME AS IN JAVA
+        productId: "",
         company: "",
         toolName: "",
         quantity: 0,
-        priceNet: 0
+        price: 0
     });
 
     const handleInputChange = (e) => {
@@ -26,11 +25,11 @@ const NewTool = () => {
           .then(response => {
             console.log('success', response);
             setInputValues({
-                articleNumber: "",
+                productId: "",
                 company: "",
                 toolName: "",
                 quantity: 0,
-                priceNet: 0
+                price: 0
             });
           })
           .catch(error => {
@@ -45,47 +44,47 @@ const NewTool = () => {
                     <div className="form-floating mb-3">
                         <input 
                         className="form-control" 
-                        id="articleNumberInput" 
-                        value={inputValues.articleNumber}
+                        id="productId" 
+                        value={inputValues.productId}
                         onChange={handleInputChange}
                         placeholder=""/>
-                        <label htmlFor="articleNumberInput">Article Number</label>
+                        <label htmlFor="productId">Product ID</label>
                     </div>
                     <div className="form-floating mb-3">
                         <input 
                         className="form-control" 
-                        id="companyInput"
+                        id="company"
                         value={inputValues.company} 
                         onChange={handleInputChange}
                         placeholder=""/>
-                        <label htmlFor="companyInput">Company</label>
+                        <label htmlFor="company">Company</label>
                     </div>
                     <div className="form-floating mb-3">
                         <input 
                         className="form-control" 
-                        id="toolNameInput"
+                        id="toolName"
                         value={inputValues.toolName}
                         onChange={handleInputChange}
                         placeholder=""/>
-                        <label htmlFor="toolNameInput">Tool name</label>
+                        <label htmlFor="toolName">Tool Name</label>
                     </div>
                     <div className="form-floating mb-3">
                         <input 
                         className="form-control" 
-                        id="quantityInput"
+                        id="quantity"
                         value={inputValues.quantity} 
                         onChange={handleInputChange}
                         placeholder=""/>
-                        <label htmlFor="quantityInput">Quantity</label>
+                        <label htmlFor="quantity">Quantity</label>
                     </div>
                     <div className="form-floating mb-3">
                         <input 
                         className="form-control" 
-                        id="priceInput"
-                        value={inputValues.priceNet} 
+                        id="price"
+                        value={inputValues.price} 
                         onChange={handleInputChange}
                         placeholder=""/>
-                        <label htmlFor="priceInput">Price/net</label>
+                        <label htmlFor="price">Price/net</label>
                     </div>
                     <button className="btn btn-success" onClick={handleSubmit}
                     >Accept</button>
@@ -94,4 +93,4 @@ const NewTool = () => {
     );
 }
 
-export default NewTool;
+export default AddNewTool;

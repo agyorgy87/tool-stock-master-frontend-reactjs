@@ -1,7 +1,8 @@
 import React from 'react';
 import {Routes, Route, BrowserRouter} from "react-router-dom";
 import Home from "./pages/Home.js";
-import NewTool from './pages/NewTool.js';
+import SearchById from './pages/SearchById.js';
+import AddNewTool from './pages/AddNewTool.js';
 
 const Navigation = () => {
 
@@ -10,7 +11,8 @@ const Navigation = () => {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Home/>} />   
-                    <Route path="/newtool" element={<NewTool/>} />       
+                    <Route path="/searchbyid" element={<SearchById/>} />
+                    <Route path="/addnewtool" element={<AddNewTool/>} />       
                 </Routes>
             </BrowserRouter>
     </div>

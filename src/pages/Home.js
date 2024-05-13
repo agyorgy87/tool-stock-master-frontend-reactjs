@@ -1,6 +1,6 @@
 import React from 'react';
 //import { useNavigate } from 'react-router-dom';
-import Login from "../components/Login.js";
+import LoginForm from "../components/LoginForm.js";
 
 const Home = () => {
 
@@ -9,7 +9,7 @@ const Home = () => {
     return (
         <div className="d-flex justify-content-center flex-column">
                 <div className="d-flex justify-content-center mt-5">
-                    <Login />
+                    <LoginForm />
                 </div>
            {/*<button className="" onClick={() => navigate("/newtool")} size="md">New tool</button> */}
         </div>
