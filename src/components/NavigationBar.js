@@ -40,7 +40,7 @@ const NavigationBar = () => {
                                         <hr className="dropdown-divider"/>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item" href>x</a>
+                                        <Link to={"/alltools"} className="dropdown-item" href>all tools</Link>
                                     </li>
                                 </ul>
                             </li>

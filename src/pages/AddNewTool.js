@@ -5,7 +5,7 @@ import NavigationBar from '../components/NavigationBar';
 
 const AddNewTool = () => {
 
-    const [inputValues, setInputValues] = useState ({ // SAME AS IN JAVA
+    const [inputValues, setInputValues] = useState ({
         productId: "",
         company: "",
         toolName: "",
@@ -14,16 +14,16 @@ const AddNewTool = () => {
     });
 
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
+        const { id, value } = e.target;
         setInputValues({
             ...inputValues,
-            [name]: value
+            [id]: value
         });
     };
 
-    const handleSubmit = (event) => {
+    const createTool = (event) => {
         event.preventDefault();
-        axios.post("http://localhost:4000/api/data", inputValues)
+        axios.post("http://localhost:8080/createtool", inputValues)
           .then(response => {
             console.log('success', response);
             setInputValues({
@@ -37,7 +37,7 @@ const AddNewTool = () => {
           .catch(error => {
             console.error('error:', error);
           });
-      };
+    };
 
     return (
         <div>
@@ -53,7 +53,7 @@ const AddNewTool = () => {
                             <input 
                             className="form-control" 
                             id="productId" 
-                            value={inputValues.productId}
+                            value={inputValues.productId}                         
                             onChange={handleInputChange}
                             placeholder=""/>
                             <label htmlFor="productId">Product ID</label>
@@ -95,7 +95,7 @@ const AddNewTool = () => {
                             <label htmlFor="price">Price/net</label>
                         </div>
                         <div className="d-flex justify-content-center">
-                            <button className="btn btn-success" onClick={handleSubmit}>
+                            <button className="btn btn-success" onClick={createTool}>
                                 Save Tool
                             </button>
                         </div>

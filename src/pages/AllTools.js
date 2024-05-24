@@ -1,16 +1,8 @@
-import {useState, useEffect} from 'react';
-import "../css/ModificationTable.css";
-import { useNavigate } from "react-router-dom";
-import { MdDeleteOutline } from "react-icons/md"; 
-import { FaRegEdit } from "react-icons/fa";
+import { useState, useEffect } from 'react';
+import NavigationBar from '../components/NavigationBar.js';
 import axios from 'axios';
 
-
-const ModificationTable = () => {
-
-    let navigate = useNavigate();
-
-
+const AllTools = () => {
 
     const [allData, setAllData] = useState([]);
 
@@ -25,20 +17,12 @@ const ModificationTable = () => {
         });
     }, []);
 
-    const deleteTool = (id) => {
-        axios.delete(`http://localhost:8080/deletetool/${id}`)
-          .then(response => {
-            let newList = [...allData];
-            newList = newList.filter((tool) => tool.id !== id);
-            setAllData(newList);
-          })
-          .catch(error => {
-            console.error('error:', error);
-          });
-    }
-  
-    return (
-        <div className="modification-table-container">
+  return (
+    <div>
+        <div>
+            <NavigationBar/>
+        </div>
+        <div className="result-table-container">
             <table className="table">
                 <thead>
                     <tr>
@@ -48,11 +32,9 @@ const ModificationTable = () => {
                         <th scope="col">Tool Name</th>
                         <th scope="col">Quantity</th>
                         <th scope="col">Price</th>
-                        <th scope="col">Edit</th>
-                        <th scope="col">Delete</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody> 
                     {allData.map((tool, index) => {
                         return (
                             <tr>
@@ -62,21 +44,14 @@ const ModificationTable = () => {
                                 <td>{tool.toolName}</td>
                                 <td>{tool.quantity}</td>
                                 <td>{tool.price}</td>
-                                <button onClick={() => navigate("/edittool/" + tool.id)}>
-                                    <FaRegEdit/>
-                                </button>
-                                <button onClick={() => deleteTool(tool.id)}>
-                                    <MdDeleteOutline/>
-                                </button>
                             </tr>
                         );
-                    })}
+                        })}             
                 </tbody> 
             </table>
         </div>
+    </div>
   )
-
-
 }
 
-export default ModificationTable
+export default AllTools
