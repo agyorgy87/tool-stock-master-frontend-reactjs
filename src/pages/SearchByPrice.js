@@ -12,13 +12,28 @@ const SearchByPrice = () => {
             <div className="form-floating mb-3">
                 <input 
                 className="form-control" 
-                id="price" 
+                id="priceMin" 
                 />
-                    <label htmlFor="price">Price</label>
+                <label htmlFor="quantityMin">Min Price</label>
+            </div>
+            <div className="ms-3 me-3">
+                <p>-</p>
+            </div>
+            <div className="form-floating mb-3">
+                <input 
+                className="form-control" 
+                id="priceMax" 
+                />
+                <label htmlFor="priceMax">Max Price</label>
+            </div>
+            <div className="ms-3 mt-2">
+                <button className="btn btn-primary">
+                    Search
+                </button>
             </div>
         </div>
         <div className="d-flex justify-content-center mt-4">
-            <ResultTable/>
+            <ResultTable/> 
         </div>
     </div>
   )
