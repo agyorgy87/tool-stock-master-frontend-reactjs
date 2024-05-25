@@ -5,7 +5,7 @@ import NavigationBar from '../components/NavigationBar';
 
 const AddNewTool = () => {
 
-    const [inputValues, setInputValues] = useState ({ // SAME AS IN JAVA
+    const [inputValues, setInputValues] = useState ({
         productId: "",
         company: "",
         toolName: "",
@@ -23,7 +23,7 @@ const AddNewTool = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post("http://localhost:4000/api/data", inputValues)
+        axios.post("http://localhost:8080/createtool", inputValues)
           .then(response => {
             console.log('success', response);
             setInputValues({

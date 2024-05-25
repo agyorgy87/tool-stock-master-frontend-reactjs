@@ -7,7 +7,6 @@ const AllTools = () => {
     const [allData, setAllData] = useState([]);
 
     useEffect(() => {
-        console.log(allData);
         axios.get("http://localhost:8080/alltools")
         .then(response => {
             setAllData(response.data);
