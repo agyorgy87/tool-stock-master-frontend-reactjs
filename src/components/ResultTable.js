@@ -1,7 +1,7 @@
 import React from 'react';
 import "../css/ResultTable.css";
 
-const ResultTable = () => {
+const ResultTable = ({ tools = [] }) => {
 
     return (
         <div className="result-table-container">
@@ -17,28 +17,17 @@ const ResultTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* 
-                    {example.map((tool, index) => {
-                        return (
-                            <tr>
+                    {tools.map((tool, index) => (
+                            <tr key={index}>
                                 <td>{index + 1}</td>
-                                <td>{tool.productId}</td>                
-                                <td>{tool.company}</td>                
+                                <td>{tool.productId}</td>
+                                <td>{tool.company}</td>
                                 <td>{tool.toolName}</td>
                                 <td>{tool.quantity}</td>
                                 <td>{tool.price}</td>
                             </tr>
-                        );
-                        })}
-                        */}
-                    <tr>
-                        <td>1</td>
-                        <td>2</td>                
-                        <td>3</td>                
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                    </tr>
+                        )
+                    )}
                 </tbody> 
             </table>
         </div>
