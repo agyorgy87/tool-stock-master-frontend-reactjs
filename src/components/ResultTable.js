@@ -1,7 +1,11 @@
 import React from 'react';
 import "../css/ResultTable.css";
 
-const ResultTable = ({ tools = [] }) => {
+const ResultTable = ({ tools }) => {
+
+    if (!Array.isArray(tools)) {
+        return <p>No tools found</p>;
+    }
 
     return (
         <div className="result-table-container">
