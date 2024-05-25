@@ -1,9 +1,34 @@
-import React from 'react';
+import { useState, useEffect} from 'react';
+import axios from 'axios';
 import NavigationBar from "../components/NavigationBar.js";
-import SearchByIdInput from "../components/SearchByIdInput.js";
 import ResultTable from "../components/ResultTable.js";
 
+
 const SearchById = () => {
+
+    const [filteredTools, setFilteredTools] = useState([]);
+    const [productId, setProductId] = useState(0);
+
+    useEffect(() => {
+        axios.get("http://localhost:8080/alltools")
+            .then(response => {
+                setFilteredTools(response.data);
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+    },[])
+ 
+    const searchById = () => {
+        axios.get(`http://localhost:8080/searchByProductId/${productId}`)
+            .then((response) => {
+                setFilteredTools([response.data]);
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                setFilteredTools([]);
+            });
+    }
 
     return ( 
         <div>
@@ -11,10 +36,20 @@ const SearchById = () => {
                 <NavigationBar/>
             </div>
             <div className="d-flex justify-content-center mt-5">
-                <SearchByIdInput/>
+                <div className="form-floating mb-3 d-flex">
+                    <input 
+                    className="form-control me-3" 
+                    id="productId" 
+                    onChange={(e) => setProductId(e.target.value)}
+                    />
+                    <label htmlFor="productId">Product ID</label>
+                    <button className="btn btn-primary" onClick={searchById}> 
+                        Search
+                    </button>
+                </div>
             </div>
             <div className="d-flex justify-content-center mt-4">
-                <ResultTable/>
+                <ResultTable tools={filteredTools}/>
             </div>
         </div>
     )
