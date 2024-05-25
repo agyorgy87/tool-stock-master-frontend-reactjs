@@ -10,8 +10,6 @@ const ModificationTable = () => {
 
     let navigate = useNavigate();
 
-
-
     const [allData, setAllData] = useState([]);
 
     useEffect(() => {
