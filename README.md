@@ -2,6 +2,8 @@ npm install react-router-dom@6
 
 npm i bootstrap@5.3.3
 
+npm install react-icons
+
 npm install axios
 
 # Getting Started with Create React App
