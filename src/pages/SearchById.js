@@ -22,7 +22,7 @@ const SearchById = () => {
     const searchById = () => {
         axios.get(`http://localhost:8080/searchByProductId/${productId}`)
             .then((response) => {
-                setFilteredTools([response.data]);
+                setFilteredTools([response.data]);// !?
             })
             .catch((error) => {
                 console.error("Error:", error);
