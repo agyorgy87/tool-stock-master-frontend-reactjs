@@ -1,27 +1,64 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import NavigationBar from "../components/NavigationBar.js";
 import ResultTable from "../components/ResultTable.js";
 
 const SearchByCompany = () => {
-  return (
-    <div>
+
+    const [filteredTools, setFilteredTools] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:8080/alltools")
+            .then(response => {
+                setFilteredTools(response.data);
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+    },[])
+ 
+    const searchByCompany = (e) => {
+        const companyResult = e.trim();
+        if (companyResult !== "") {
+            axios.get(`http://localhost:8080/searchByCompany/${companyResult}`)
+                .then((response) => {
+                    setFilteredTools(response.data);
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                    setFilteredTools([]);
+                });
+        } else {
+            axios.get("http://localhost:8080/alltools")
+            .then(response => {
+                setFilteredTools(response.data);
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+        }
+    }
+
+    return ( 
         <div>
-            <NavigationBar/>
-        </div>
-        <div className="d-flex justify-content-center mt-5">
-            <div className="form-floating mb-3">
-                <input 
-                className="form-control" 
-                id="company" 
-                />
-                <label htmlFor="company">Company</label>
+            <div>
+                <NavigationBar/>
+            </div>
+            <div className="d-flex justify-content-center mt-5">
+                <div className="form-floating mb-3">
+                    <input 
+                    className="form-control" 
+                    id="company" 
+                    onChange={(e) => searchByCompany(e.target.value)}
+                    />
+                    <label htmlFor="company">Company</label>
+                </div>
+            </div>
+            <div className="d-flex justify-content-center mt-4">
+                <ResultTable tools={filteredTools}/>
             </div>
         </div>
-        <div className="d-flex justify-content-center mt-4">
-            <ResultTable/>
-        </div>
-    </div>
-  )
+    )
 }
 
 export default SearchByCompany;
