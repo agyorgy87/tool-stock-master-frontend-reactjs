@@ -51,19 +51,6 @@ const SearchByQuantity = () => {
         }
     }
 
-    /*  //working
-    const searchByQuantity = () => {
-            axios.get(`http://localhost:8080/searchByQuantity/${minValueInput}/${maxValueInput}`)
-            .then((response) => {
-                setFilteredTools(response.data);
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-                setFilteredTools([]);
-            });
-    }
-    */
-
     return (
         <div>
             <div>
