@@ -22,10 +22,17 @@ const SearchByQuantity = () => {
 
     const searchByQuantity = () => {
         if(minValueInput !== null && maxValueInput === null){
-            console.log("Calling searchByMinQuantity endpoint");
             axios.get(`http://localhost:8080/searchByMinQuantity/${minValueInput}`)
             .then((response) => {
-                console.log("Response from searchByMinQuantity:", response.data);
+                setFilteredTools(response.data);
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                setFilteredTools([]);
+            });
+        }else if(minValueInput === null && maxValueInput !== null){
+            axios.get(`http://localhost:8080/searchByMaxQuantity/${maxValueInput}`)
+            .then((response) => {
                 setFilteredTools(response.data);
             })
             .catch((error) => {
@@ -33,7 +40,7 @@ const SearchByQuantity = () => {
                 setFilteredTools([]);
             });
         }else{
-            axios.get(`http://localhost:8080/searchByQuantity/${minValueInput}/${maxValueInput}`)
+            axios.get(`http://localhost:8080/searchByQuantityBetween/${minValueInput}/${maxValueInput}`)
             .then((response) => {
                 setFilteredTools(response.data);
             })
@@ -43,19 +50,6 @@ const SearchByQuantity = () => {
             });
         }
     }
-
-    /*  //working
-    const searchByQuantity = () => {
-            axios.get(`http://localhost:8080/searchByQuantity/${minValueInput}/${maxValueInput}`)
-            .then((response) => {
-                setFilteredTools(response.data);
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-                setFilteredTools([]);
-            });
-    }
-    */
 
     return (
         <div>
