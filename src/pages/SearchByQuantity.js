@@ -30,6 +30,15 @@ const SearchByQuantity = () => {
                 console.error("Error:", error);
                 setFilteredTools([]);
             });
+        }else if(minValueInput === null && maxValueInput !== null){
+            axios.get(`http://localhost:8080/searchByMaxQuantity/${maxValueInput}`)
+            .then((response) => {
+                setFilteredTools(response.data);
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                setFilteredTools([]);
+            });
         }else{
             axios.get(`http://localhost:8080/searchByQuantityBetween/${minValueInput}/${maxValueInput}`)
             .then((response) => {
