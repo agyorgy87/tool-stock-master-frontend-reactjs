@@ -7,11 +7,11 @@ const SearchByPrice = () => {
 
     const [filteredTools, setFilteredTools] = useState([]);
 
-    const [minValueInput,setMinValueInput] = useState(null);
-    const [maxValueInput, setMaxValueInput] = useState(null);
+    const [minValueInput, setMinValueInput] = useState("");
+    const [maxValueInput, setMaxValueInput] = useState("");
 
     useEffect(() => {
-        axios.get("http://localhost:8080/alltools")
+        axios.get("http://localhost:8080/all-tools")
             .then(response => {
                 setFilteredTools(response.data);
             })
@@ -21,8 +21,8 @@ const SearchByPrice = () => {
     },[])
 
     const searchByPrice = () => {
-        if(minValueInput !== null && maxValueInput === null){
-            axios.get(`http://localhost:8080/searchByMinPrice/${minValueInput}`)
+        if(minValueInput !== "" && maxValueInput === ""){
+            axios.get(`http://localhost:8080/search-by-min-price/${minValueInput}`)
             .then((response) => {
                 setFilteredTools(response.data);
             })
@@ -30,8 +30,8 @@ const SearchByPrice = () => {
                 console.error("Error:", error);
                 setFilteredTools([]);
             });
-        }else if(minValueInput === null && maxValueInput !== null){
-            axios.get(`http://localhost:8080/searchByMaxPrice/${maxValueInput}`)
+        }else if(minValueInput === "" && maxValueInput !== ""){
+            axios.get(`http://localhost:8080/search-by-max-price/${maxValueInput}`)
             .then((response) => {
                 setFilteredTools(response.data);
             })
@@ -40,7 +40,7 @@ const SearchByPrice = () => {
                 setFilteredTools([]);
             });
         }else{
-            axios.get(`http://localhost:8080/searchByPriceBetween/${minValueInput}/${maxValueInput}`)
+            axios.get(`http://localhost:8080/search-by-price-between/${minValueInput}/${maxValueInput}`)
             .then((response) => {
                 setFilteredTools(response.data);
             })

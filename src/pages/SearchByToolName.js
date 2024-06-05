@@ -8,7 +8,7 @@ const SearchByToolName = () => {
     const [filteredTools, setFilteredTools] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8080/alltools")
+        axios.get("http://localhost:8080/all-tools")
             .then(response => {
                 setFilteredTools(response.data);
             })
@@ -19,8 +19,8 @@ const SearchByToolName = () => {
  
     const searchByName = (e) => {
         const nameResult = e.trim();
-        if (nameResult !== "") {
-            axios.get(`http://localhost:8080/searchByName/${nameResult}`)
+        if (nameResult) { //if !== "" !== null !== undefined
+            axios.get(`http://localhost:8080/search-by-name/${nameResult}`)
                 .then((response) => {
                     setFilteredTools(response.data);
                 })
@@ -29,7 +29,7 @@ const SearchByToolName = () => {
                     setFilteredTools([]);
                 });
         } else {
-            axios.get("http://localhost:8080/alltools")
+            axios.get("http://localhost:8080/all-tools")
             .then(response => {
                 setFilteredTools(response.data);
             })

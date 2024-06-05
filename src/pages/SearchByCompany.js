@@ -8,7 +8,7 @@ const SearchByCompany = () => {
     const [filteredTools, setFilteredTools] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8080/alltools")
+        axios.get("http://localhost:8080/all-tools")
             .then(response => {
                 setFilteredTools(response.data);
             })
@@ -20,7 +20,7 @@ const SearchByCompany = () => {
     const searchByCompany = (e) => {
         const companyResult = e.trim();
         if (companyResult !== "") {
-            axios.get(`http://localhost:8080/searchByCompany/${companyResult}`)
+            axios.get(`http://localhost:8080/search-by-company/${companyResult}`)
                 .then((response) => {
                     setFilteredTools(response.data);
                 })
@@ -29,7 +29,7 @@ const SearchByCompany = () => {
                     setFilteredTools([]);
                 });
         } else {
-            axios.get("http://localhost:8080/alltools")
+            axios.get("http://localhost:8080/all-tools")
             .then(response => {
                 setFilteredTools(response.data);
             })

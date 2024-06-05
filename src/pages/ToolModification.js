@@ -1,6 +1,5 @@
 import React from 'react';
 import NavigationBar from '../components/NavigationBar.js';
-
 import ModificationTable from '../components/ModificationTable.js';
 
 const ToolModification = () => {

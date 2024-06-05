@@ -10,19 +10,20 @@ const SearchById = () => {
     const [productId, setProductId] = useState(0);
 
     useEffect(() => {
-        axios.get("http://localhost:8080/alltools")
+        axios.get("http://localhost:8080/all-tools")
             .then(response => {
                 setFilteredTools(response.data);
             })
             .catch(error => {
                 console.error("Error:", error);
+                //exmaple: message in bootstrap alert
             });
     },[])
  
-    const searchById = () => {
-        axios.get(`http://localhost:8080/searchByProductId/${productId}`)
+    const searchById = () => { 
+        axios.get(`http://localhost:8080/search-by-product-id/${productId}`)
             .then((response) => {
-                setFilteredTools([response.data]);// !?
+                setFilteredTools([response.data]);
             })
             .catch((error) => {
                 console.error("Error:", error);

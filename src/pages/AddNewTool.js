@@ -23,7 +23,7 @@ const AddNewTool = () => {
 
     const createTool = (event) => {
         event.preventDefault();
-        axios.post("http://localhost:8080/createtool", inputValues)
+        axios.post("http://localhost:8080/create-tool", inputValues)
           .then(response => {
             console.log('success', response);
             setInputValues({

@@ -13,7 +13,7 @@ const ModificationTable = () => {
     const [allData, setAllData] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8080/alltools")
+        axios.get("http://localhost:8080/all-tools")
         .then(response => {
             setAllData(response.data);
             console.log('success', response);
@@ -24,7 +24,7 @@ const ModificationTable = () => {
     }, []);
 
     const deleteTool = (id) => {
-        axios.delete(`http://localhost:8080/deletetool/${id}`)
+        axios.delete(`http://localhost:8080/delete-tool/${id}`)
           .then(response => {
             let newList = [...allData];
             newList = newList.filter((tool) => tool.id !== id);
@@ -60,7 +60,7 @@ const ModificationTable = () => {
                                 <td>{tool.toolName}</td>
                                 <td>{tool.quantity}</td>
                                 <td>{tool.price}</td>
-                                <button onClick={() => navigate("/edittool/" + tool.id)}>
+                                <button onClick={() => navigate("/edit-tool/" + tool.id)}>
                                     <FaRegEdit/>
                                 </button>
                                 <button onClick={() => deleteTool(tool.id)}>

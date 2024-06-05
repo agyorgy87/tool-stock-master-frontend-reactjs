@@ -31,7 +31,7 @@ const EditTool = () => {
 
     
     const updateTool = () => {
-        axios.put(`http://localhost:8080/updatetool/${id}`, editData)
+        axios.put(`http://localhost:8080/update-tool/${id}`, editData)
           .then(response => {
             console.log('success', response)
           }).catch(error => {

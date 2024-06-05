@@ -7,11 +7,11 @@ const SearchByQuantity = () => {
 
     const [filteredTools, setFilteredTools] = useState([]);
 
-    const [minValueInput,setMinValueInput] = useState(null);
-    const [maxValueInput, setMaxValueInput] = useState(null);
+    const [minValueInput,setMinValueInput] = useState("");
+    const [maxValueInput, setMaxValueInput] = useState("");
 
     useEffect(() => {
-        axios.get("http://localhost:8080/alltools")
+        axios.get("http://localhost:8080/all-tools")
             .then(response => {
                 setFilteredTools(response.data);
             })
@@ -21,8 +21,8 @@ const SearchByQuantity = () => {
     },[])
 
     const searchByQuantity = () => {
-        if(minValueInput !== null && maxValueInput === null){
-            axios.get(`http://localhost:8080/searchByMinQuantity/${minValueInput}`)
+        if(minValueInput !== "" && maxValueInput === ""){
+            axios.get(`http://localhost:8080/search-by-min-quantity/${minValueInput}`)
             .then((response) => {
                 setFilteredTools(response.data);
             })
@@ -30,8 +30,8 @@ const SearchByQuantity = () => {
                 console.error("Error:", error);
                 setFilteredTools([]);
             });
-        }else if(minValueInput === null && maxValueInput !== null){
-            axios.get(`http://localhost:8080/searchByMaxQuantity/${maxValueInput}`)
+        }else if(minValueInput === "" && maxValueInput !== ""){
+            axios.get(`http://localhost:8080/search-by-max-quantity/${maxValueInput}`)
             .then((response) => {
                 setFilteredTools(response.data);
             })
@@ -40,7 +40,7 @@ const SearchByQuantity = () => {
                 setFilteredTools([]);
             });
         }else{
-            axios.get(`http://localhost:8080/searchByQuantityBetween/${minValueInput}/${maxValueInput}`)
+            axios.get(`http://localhost:8080/search-by-quantity-between/${minValueInput}/${maxValueInput}`)
             .then((response) => {
                 setFilteredTools(response.data);
             })
@@ -56,7 +56,7 @@ const SearchByQuantity = () => {
             <div>
                 <NavigationBar/>
             </div>
-            <div className="d-flex justify-content-center mt-5">
+            <div className="d-flex justify-content-center mt-5"> 
                 <div className="form-floating mb-3">
                     <input 
                     className="form-control" 
